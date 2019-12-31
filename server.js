@@ -56,6 +56,12 @@ app.use((req, res, next) => {
   })
 })
 
+app.use((req, res, next) => {
+  logger.log(req.headers)
+
+  next()
+})
+
 function loginRequired(req, res, next) {
   logger.log('...login required middleware...')
   if(!req.user) {
